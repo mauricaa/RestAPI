@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://localhost:7268/numbers';
+const API_BASE_URL = 'https://localhost:7004/numbers';
 
 async function incrementNumber() {
     const inputElement = document.getElementById('incrementNumber');
