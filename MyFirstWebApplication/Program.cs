@@ -1,8 +1,8 @@
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); //erstellt eine neue Webanwendung
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost", policy =>
+    options.AddPolicy("AllowLocalhost", policy => 
     {
         policy.WithOrigins("http://127.0.0.1:5500")
               .AllowAnyMethod()
@@ -10,23 +10,23 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddControllers(); //fügt Controller-Unterstützung hinzu
+builder.Services.AddEndpointsApiExplorer(); //ermöglicht das erkunden von API Endpunkten (für swagger)
+builder.Services.AddSwaggerGen(); //aktiviert swagger
 
-var app = builder.Build();
+var app = builder.Build(); //erstellt anwendung aus der konfiguration im builder 
 
-app.UseCors("AllowLocalhost");
+app.UseCors("AllowLocalhost"); //aktivert die zuvor definierte CORS-Regel (AllowLocalhost)
 
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) 
+{                                       //nur im entwicklungsmodus wird swagger aktiviert
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection();      //leitet HTTP auf HTTPS um
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run();          //startet den webserver

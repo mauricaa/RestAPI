@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schulverwaltung</title>
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input,
+        button {
+            margin: 5px;
+            padding: 8px;
+        }
+
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Neuen Schüler hinzufügen</h2>
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="gender" placeholder="Geschlecht (Male/Female)">
+    <input type="date" id="birthDate">
+    <input type="text" id="className" placeholder="Klasse">
+    <button onclick="addSchueler()">Schüler hinzufügen</button>
+
+    <h2>Alle Schüler abrufen</h2>
+    <button onclick="getAllSchueler()">Schüler anzeigen</button>
+
+    <h2>Schüler einer Klasse abrufen</h2>
+    <input type="text" id="searchClass" placeholder="Klassenname">
+    <button onclick="getSchuelerByClass()">Suchen</button>
+
+    <h2>Klassenraumprüfung</h2>
+    <input type="text" id="checkClass" placeholder="Klassenname">
+    <input type="number" id="roomSeats" placeholder="Plätze im Raum">
+    <button onclick="checkClassroomCapacity()">Prüfen</button>
+
+    <h2>Durchschnittsalter und Geschlechtsverteilung</h2>
+    <button onclick="getStats()">Abrufen</button>
+
+    <div id="output"></div>
+</body>
+
+</html>
